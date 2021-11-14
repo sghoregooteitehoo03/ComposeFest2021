@@ -141,7 +141,7 @@ private fun SelectableIconButton(
         MaterialTheme.colors.onSurface.copy(alpha = 0.6f)
     }
     TextButton(
-        onClick = { onIconSelected() },
+        onClick = onIconSelected,
         shape = CircleShape,
         modifier = modifier
     ) {
