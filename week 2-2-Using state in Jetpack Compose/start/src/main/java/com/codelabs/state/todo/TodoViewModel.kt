@@ -46,20 +46,24 @@ class TodoViewModel : ViewModel() {
         onEditDone()
     }
 
+    // 아이템 선택
     fun onEditItemSelected(item: TodoItem) {
+        // 포지션 수정
         currentEditPosition = todoItems.indexOf(item)
     }
 
+    // 수정 끝
     fun onEditDone() {
         currentEditPosition = -1
     }
 
+    // 아이템 내용 변경
     fun onEditItemChange(item: TodoItem) {
         val currentItem = requireNotNull(currentEditItem)
         require(currentItem.id == item.id) {
             "You can only change an item with the same id as currentEditItem"
         }
 
-        todoItems[currentEditPosition] = item
+        todoItems[currentEditPosition] = item // 리스트 아이템 수정
     }
 }
