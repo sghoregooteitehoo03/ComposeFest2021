@@ -25,7 +25,7 @@ android {
     defaultConfig {
         applicationId "com.example.compose.rally"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode 1
         versionName '1.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -77,12 +77,15 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion rootProject.composeVersion
     }
-
     packagingOptions {
-        exclude "META-INF/licenses/**"
-        exclude "META-INF/AL2.0"
-        exclude "META-INF/LGPL2.1"
+        jniLibs {
+            excludes += ['META-INF/licenses/**']
+        }
+        resources {
+            excludes += ['META-INF/licenses/**', 'META-INF/AL2.0', 'META-INF/LGPL2.1']
+        }
     }
+
 }
 
 dependencies {
@@ -92,6 +95,9 @@ dependencies {
     implementation "com.google.android.material:material:$rootProject.materialVersion"
     implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha04"
 
     // Compose
     implementation "androidx.compose.runtime:runtime:$rootProject.composeVersion"
