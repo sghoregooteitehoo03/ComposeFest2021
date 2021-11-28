@@ -27,10 +27,6 @@ class RallyNavHostTest {
         }
     }
 
-    private fun RallyNavHost(navController: NavHostController) {
-
-    }
-
     @Test
     fun rallyNavHost() {
         composeTestRule
